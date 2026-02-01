@@ -20,48 +20,46 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected bool isControlled = false;
 
     [Tooltip("Maximum distance from current controlled entity at which you can switch to another entity")]
-    public float switchControlRadius = 5f;
-    [Header("Outline Shader")]
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    public float switchControlRadius = 2.5f;
 
-    private MaterialPropertyBlock mpb;
-    private static readonly int OutlineEnabledID =
-    Shader.PropertyToID("_OutlineEnabled");
-
+    [Header("Feedback Settings")]
+    [SerializeField] private ParticleSystem selectionParticles; // Drag child particles here
 
     protected Rigidbody2D rb;
     private Vector2 movement;
-private void SetOutline(bool enabled)
-{
-    if (spriteRenderer == null) return;
 
-    spriteRenderer.GetPropertyBlock(mpb);
-    mpb.SetFloat(OutlineEnabledID, enabled ? 1f : 0f);
-    spriteRenderer.SetPropertyBlock(mpb);
-}
-private void UpdateOutline()
-{
-    // Never outline the currently controlled player
-    if (isControlled)
+    private void UpdateFeedback()
     {
-        SetOutline(false);
-        return;
+        // Never show "nearby" feedback for the currently controlled player
+        if (isControlled) return;
+
+        PlayerController controlled = GetControlledPlayer();
+
+        // IF NO ONE IS SELECTED: Stop particles and exit
+        if (controlled == null)
+        {
+            if (selectionParticles != null && selectionParticles.isPlaying)
+                selectionParticles.Stop();
+            return;
+        }
+
+        if (selectionParticles == null) return;
+
+        float dist = Vector2.Distance(controlled.transform.position, transform.position);
+        bool inRange = dist <= controlled.switchControlRadius;
+
+        // Toggle Particles for proximity (Green for nearby)
+        if (inRange && !selectionParticles.isPlaying)
+        {
+            var main = selectionParticles.main;
+            main.startColor = Color.green;
+            selectionParticles.Play();
+        }
+        else if (!inRange && selectionParticles.isPlaying)
+        {
+            selectionParticles.Stop();
+        }
     }
-
-    PlayerController controlled = GetControlledPlayer();
-    if (controlled == null)
-    {
-        SetOutline(false);
-        return;
-    }
-
-    float dist = Vector2.Distance(
-        controlled.transform.position,
-        transform.position
-    );
-
-    SetOutline(dist <= controlled.switchControlRadius);
-}
 
     protected virtual void Start()
     {
@@ -74,17 +72,6 @@ private void UpdateOutline()
         else
         {
             ConfigureRigidbody2D();
-        }
-        if (spriteRenderer == null)
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        if (spriteRenderer == null)
-        {
-            Debug.LogWarning("SpriteRenderer component not found on " + gameObject.name);
-        }
-        else
-        {
-            mpb = new MaterialPropertyBlock();
-            SetOutline(false); // start clean
         }
     }
 
@@ -101,7 +88,7 @@ private void UpdateOutline()
     void Update()
     {
         HandleClickSelection();
-        UpdateOutline();
+        UpdateFeedback();
 
         if (!isControlled)
         {
@@ -122,7 +109,6 @@ private void UpdateOutline()
         movement = distanceToMouse <= mouseTargetTolerance
             ? Vector2.zero
             : (mouseWorldPos - myPos).normalized;
-
     }
 
     void FixedUpdate()
@@ -131,57 +117,60 @@ private void UpdateOutline()
             rb.linearVelocity = movement * moveSpeed;
     }
 
-    public bool IsControlled()
-    {
-        return isControlled;
-    }
+    public bool IsControlled() => isControlled;
 
     public void SetControlled(bool controlled)
     {
         isControlled = controlled;
-        
-        //I committed this crime CJ is innocent
-        if(isControlled)
+
+        // Feedback: Particles
+        if (selectionParticles != null)
         {
-            GetComponent<BehaviorGraphAgent>().enabled = false;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            var main = selectionParticles.main;
+            if (controlled)
+            {
+                main.startColor = Color.cyan; // Active player color
+                selectionParticles.Play();
+
+                // HARDCODE YOUR AUDIO LOGIC HERE
+            }
+            else
+            {
+                selectionParticles.Stop();
+            }
+        }
+
+        // Component Management (Possession Logic)
+        var behaviorAgent = GetComponent<BehaviorGraphAgent>();
+        var navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        if (isControlled)
+        {
+            if (behaviorAgent != null) behaviorAgent.enabled = false;
+            if (navAgent != null) navAgent.enabled = false;
         }
         else
         {
-            GetComponent<BehaviorGraphAgent>().Restart();
-            GetComponent<BehaviorGraphAgent>().enabled = true;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+            if (behaviorAgent != null)
+            {
+                behaviorAgent.enabled = true;
+                behaviorAgent.Restart();
+            }
+            if (navAgent != null) navAgent.enabled = true;
         }
 
-        FindFirstObjectByType<KillLogic>().PlayerJumped(this);
+        var killLogic = FindFirstObjectByType<KillLogic>();
+        if (killLogic != null) killLogic.PlayerJumped(this);
     }
-
 
     public static PlayerController GetControlledPlayer()
     {
-        PlayerController[] players =
-            FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
-
+        PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
         foreach (PlayerController player in players)
         {
-            if (player.isControlled)
-                return player;
+            if (player.isControlled) return player;
         }
-
         return null;
-    }
-
-    public void MoveToCameraPosition()
-    {
-        Camera cam = Camera.main;
-        if (cam == null) return;
-
-        Vector3 cameraPos = cam.transform.position;
-        cameraPos.z = 0f;
-        transform.position = cameraPos;
-
-        if (rb != null)
-            rb.linearVelocity = Vector2.zero;
     }
 
     private static Vector2 GetMouseWorldPosition()
@@ -199,38 +188,28 @@ private void UpdateOutline()
     {
         if (!Input.GetMouseButtonDown(0)) return;
 
-        Camera cam = Camera.main;
-        if (cam == null) return;
-
         Vector2 mouseWorldPos = GetMouseWorldPosition();
         Collider2D hitCollider = Physics2D.OverlapPoint(mouseWorldPos);
         if (hitCollider == null) return;
 
-        PlayerController clickedPlayer =
-            hitCollider.GetComponent<PlayerController>() ??
-            hitCollider.GetComponentInParent<PlayerController>();
-
+        PlayerController clickedPlayer = hitCollider.GetComponentInParent<PlayerController>();
         if (clickedPlayer == null) return;
 
         PlayerController currentlyControlled = GetControlledPlayer();
+
+        // Only allow switching if we are in range of the current possessor
         if (currentlyControlled != null && clickedPlayer != currentlyControlled)
         {
-            float dist = Vector2.Distance(
-                currentlyControlled.transform.position,
-                clickedPlayer.transform.position
-            );
-
-            if (dist > currentlyControlled.switchControlRadius)
-                return;
+            float dist = Vector2.Distance(currentlyControlled.transform.position, clickedPlayer.transform.position);
+            if (dist > currentlyControlled.switchControlRadius) return;
         }
 
-        foreach (PlayerController player in
-            FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
+        // De-select everyone else
+        foreach (PlayerController player in FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
         {
             player.SetControlled(false);
         }
 
         clickedPlayer.SetControlled(true);
-        
     }
 }
