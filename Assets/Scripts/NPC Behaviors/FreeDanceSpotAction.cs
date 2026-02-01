@@ -5,22 +5,22 @@ using Action = Unity.Behavior.Action;
 using Unity.Properties;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "Free DanceSpot", story: "Free [DanceSpot]", category: "Action", id: "4e752bb5eef4d7d5c30843090a2fb2d1")]
-public partial class FreeDanceSpotAction : Action
+[NodeDescription(name: "Free ActivitySpot", story: "Free [ActivitySpot]", category: "Action", id: "4e752bb5eef4d7d5c30843090a2fb2d1")]
+public partial class FreeActivitySpotAction : Action
 {
-    [SerializeReference] public BlackboardVariable<GameObject> DanceSpot;
+    [SerializeReference] public BlackboardVariable<GameObject> ActivitySpot;
 
     protected override Status OnStart()
     {
-        if (DanceSpot.Value == null)
+        if (ActivitySpot.Value == null)
         {
-            Debug.LogError("DanceSpot is null in FreeDanceSpotAction.");
+            Debug.LogError("AgentSpot is null in FreeActivitySpotAction.");
             return Status.Failure;
         }
-        DanceSpot spotComponent = DanceSpot.Value.GetComponent<DanceSpot>();
+        AgentSpot spotComponent = ActivitySpot.Value.GetComponent<AgentSpot>();
         if (spotComponent == null)
         {
-            Debug.LogError("DanceSpot component not found on the provided GameObject.");
+            Debug.LogError("AgentSpotSpot component not found on the provided GameObject.");
             return Status.Failure;
         }
         spotComponent.VacateSpot();

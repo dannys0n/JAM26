@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class AgentSpot : MonoBehaviour
 {
+
     public bool isOccupied { get; protected set; } = false;
 
 
