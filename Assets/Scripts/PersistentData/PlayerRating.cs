@@ -54,7 +54,7 @@ public class PlayerRating : MonoBehaviour
 		return score;
 	}
 
-  public static float CalculateCurrentScore(float timer, bool guessedCorrect)
+  public static float CalculateCurrentScore(bool guessedCorrect)
   {
 		if (instance.timeSpent == 0f)
 			return 0f;
@@ -63,7 +63,7 @@ public class PlayerRating : MonoBehaviour
 
 		Timer.instance.StopTimer(guessedCorrect);
 
-		float score = 10000000 * (guess / instance.currentTimeSpent);
+		float score = 10000000 * (guess / Time.timeSinceLevelLoad);
 		Debug.Log("current score " + score);
 		instance.currentTimeSpent = 0;
 
