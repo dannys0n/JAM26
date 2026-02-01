@@ -153,7 +153,7 @@ private void UpdateOutline()
             GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         }
 
-        FindFirstObjectByType<KillLogic>().PlayerJumped(this);
+        //FindFirstObjectByType<KillLogic>().PlayerJumped(this);
     }
 
 

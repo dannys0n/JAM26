@@ -59,13 +59,10 @@ MonoBehaviour:
   HatSprites:
   - type: 2
     description: Prototype Hat
-    sprite: {fileID: 5457214470858025820, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+    sprite: {fileID: 21300000, guid: 222b93291851fea408c7f58908db89d7, type: 3}
   - type: 2
     description: Prototype Hat
-    sprite: {fileID: 4237217015851173879, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
-  - type: 2
-    description: Prototype Hat
-    sprite: {fileID: 2957861744826618471, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+    sprite: {fileID: 0}
   HairSprites:
   - type: 7
     description: Prototype Hair
@@ -97,20 +94,62 @@ MonoBehaviour:
   MaskSprites:
   - type: 3
     description: Prototype Mask
-    sprite: {fileID: 21300000, guid: 20bec11c4a866d64fb3d3396824d3909, type: 3}
+    sprite: {fileID: 21300000, guid: 843bec7b06d11db4098afc2c7073b7fb, type: 3}
   - type: 3
     description: Prototype Mask
-    sprite: {fileID: 21300000, guid: b49a71529a9cb8848a1e28e265383ec0, type: 3}
+    sprite: {fileID: 21300000, guid: e8fea83d292a4c445a05ca44402563c6, type: 3}
   - type: 3
     description: Prototype Mask
-    sprite: {fileID: 21300000, guid: ddb3019eb744d1b45b3849c2ec33cb5b, type: 3}
+    sprite: {fileID: 21300000, guid: 1f606bb3960ad46499019b350d731409, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: 6d9c1a7fb6fd9c64fb7731506f6ee5a9, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: 3018096f1b771304e86f46862400245c, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: d969a7e68b36e08448479c4a66b4c24e, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: 0e21de3772f52cd4992dcd4bb779724b, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: 58c7b1e530b718c4a8aafcb972302002, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: 58c7b1e530b718c4a8aafcb972302002, type: 3}
   FullSprites:
   - type: 6
     description: Prototype Full
-    sprite: {fileID: 21300000, guid: 433e980834744994980fe8650448ee4a, type: 3}
+    sprite: {fileID: 21300000, guid: 395570353b39be24ba36c38d7ec9d5c6, type: 3}
   - type: 6
     description: Prototype Full
-    sprite: {fileID: 21300000, guid: ccd94573a4289404d9e82f6a6f85bd7f, type: 3}
+    sprite: {fileID: 21300000, guid: cf9642dc41f3c0f44aa099d47bd18531, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 10907f5ccc11ac94baf1c2c9e5d89161, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: dff667decc58b0e4f9a03ed3a47931d6, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 18b47f36672b4a74ca42bc518bb606b9, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 236b7b1a12350c544b6ca0ff6d13c1ba, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 90477244be726814f9c23a200252184d, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 8645779ed65cc6d429ed84f71978ec4e, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: e8ebe09c471e618438978433a8991f9b, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 236b7b1a12350c544b6ca0ff6d13c1ba, type: 3}
   TopSprites: []
   BottomSprites: []
   ExistingOutfits: []
