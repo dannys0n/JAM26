@@ -1,5 +1,5 @@
 using UnityEngine;
-using Unity.AI.Navigation;
+using NavMeshPlus.Components;
 public class NavMeshBaker : MonoBehaviour
 {
     private NavMeshSurface navMeshSurface;
