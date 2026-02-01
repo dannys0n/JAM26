@@ -6,6 +6,7 @@ public class OutfitManager : MonoBehaviour
     [Header("Debug Stuff")]
     public List<NPCOutfit> testOutfits;
 
+    public bool OnlyFullOutfits;
 
     [Header("Outfit Sprites")]
 
@@ -26,11 +27,11 @@ public class OutfitManager : MonoBehaviour
     {
         ExistingOutfits = new List<FullOutfit>();
 
-        DebugTest();
+        //DebugTest();
         
     }
 
-    private void DebugTest()
+    public void AssignAllOutfits()
     {
         testOutfits.AddRange(FindObjectsByType<NPCOutfit>(FindObjectsSortMode.None));
 
@@ -44,20 +45,34 @@ public class OutfitManager : MonoBehaviour
 
     public void AssignRandomOutfit(NPCOutfit npc)
     {
+        int timesGenerated = 0;
 
+        int useFull = 0;
         //Pick random sprites/modes
-        int useFull = Random.Range(0, 2);
+        if(!OnlyFullOutfits)
+        {
+            useFull = Random.Range(0, 2);
+        }
+        
 
         FullOutfit newOutfit = CreateRandomOutfit(useFull == 0);
 
 
         //check to see if outfit already exists in scene
-        while(OutfitExists(newOutfit))
+        while(OutfitExists(newOutfit) && timesGenerated < 70)
         {
             //Pick random sprites/modes again
-            useFull = Random.Range(0, 1);
+            if (!OnlyFullOutfits)
+            {
+                useFull = Random.Range(0, 2);
+            }
+            else
+            {
+                useFull = 0;
+            }
 
             newOutfit = CreateRandomOutfit(useFull == 0);
+            timesGenerated++;
         }
 
         //add the new outfit to list of existing outfits
@@ -105,6 +120,14 @@ public class OutfitManager : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public FullOutfit GetRandomExisting()
+    {
+        int r = Random.Range(0, ExistingOutfits.Count);
+
+        return ExistingOutfits[r];
+
     }
     
 }

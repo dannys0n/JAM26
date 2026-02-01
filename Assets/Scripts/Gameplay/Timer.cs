@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
 	private void Awake()
 	{
 		instance = this;
+		StartTimer();
 	}
 
 	private void OnDestroy()
@@ -27,7 +28,7 @@ public class Timer : MonoBehaviour
 
     time += Time.deltaTime;
 		TimerText.text = "Time Elapsed: ";
-		TimerText.text += time.ToString("F2");  
+		TimerText.text += time.ToString("F0");  
 	}
 
   public void StartTimer()

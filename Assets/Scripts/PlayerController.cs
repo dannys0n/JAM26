@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Behavior;
-
+using System.Collections;         // Required for IEnumerator
+using System.Collections.Generic; // Required for List<>
 /// <summary>
 /// Simple player controller for isometric games using Rigidbody2D.
 /// Controlled entity always moves towards the mouse.
@@ -20,48 +21,145 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected bool isControlled = false;
 
     [Tooltip("Maximum distance from current controlled entity at which you can switch to another entity")]
-    public float switchControlRadius = 5f;
-    [Header("Outline Shader")]
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    public float switchControlRadius = 2.5f;
 
-    private MaterialPropertyBlock mpb;
-    private static readonly int OutlineEnabledID =
-    Shader.PropertyToID("_OutlineEnabled");
-
+    [Header("Feedback Settings")]
+    [SerializeField] private ParticleSystem selectionParticles; // Drag child particles here
 
     protected Rigidbody2D rb;
     private Vector2 movement;
-private void SetOutline(bool enabled)
-{
-    if (spriteRenderer == null) return;
+    [Header("Audio Settings")]
+    [Tooltip("The key for the initial body transfer sound in AudioManager")]
+    [SerializeField] private string transferSfxKey = "SFX_TransferBody";
 
-    spriteRenderer.GetPropertyBlock(mpb);
-    mpb.SetFloat(OutlineEnabledID, enabled ? 1f : 0f);
-    spriteRenderer.SetPropertyBlock(mpb);
-}
-private void UpdateOutline()
-{
-    // Never outline the currently controlled player
-    if (isControlled)
+    [Tooltip("List of keys for reaction sounds in AudioManager")]
+    [SerializeField] private string[] reactionSfxKeys;
+
+    [Header("Footstep Settings")]
+    [SerializeField] private string[] footstepSfxKeys;
+    [SerializeField] private float footstepInterval = 0.4f; // Time between steps
+    private float footstepTimer;
+
+    private static List<int> footstepHistory = new List<int>();
+    private const int FOOTSTEP_HISTORY_LIMIT = 2; // Don't repeat last 2 steps
+    private static List<int> reactionHistory = new List<int>();
+    private const int HISTORY_LIMIT = 3; // Avoid repeating the last 3 sounds
+    private void HandleFootsteps()
     {
-        SetOutline(false);
-        return;
+        // Only play footsteps if we are actually moving and controlled
+        if (!isControlled || movement == Vector2.zero) return;
+
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0)
+        {
+            PlayRandomFootstep();
+            // Adjust interval based on speed if you want (e.g., footstepInterval / moveSpeed)
+            footstepTimer = footstepInterval;
+        }
     }
 
-    PlayerController controlled = GetControlledPlayer();
-    if (controlled == null)
+    private void PlayRandomFootstep()
     {
-        SetOutline(false);
-        return;
+        if (footstepSfxKeys == null || footstepSfxKeys.Length == 0 || AudioManager.Instance == null) return;
+
+        int index;
+        // Prevent repeating the last 2 sounds
+        do
+        {
+            index = Random.Range(0, footstepSfxKeys.Length);
+        } while (footstepHistory.Contains(index));
+
+        footstepHistory.Add(index);
+        if (footstepHistory.Count > FOOTSTEP_HISTORY_LIMIT) footstepHistory.RemoveAt(0);
+
+        AudioSource mySource = GetComponent<AudioSource>();
+        if (mySource != null)
+        {
+            // Use the AudioManager to play the selected footstep key
+            AudioManager.Instance.PlaySound(footstepSfxKeys[index], mySource);
+        }
+    }
+    private void PlayPossessionAudio()
+    {
+        if (AudioManager.Instance == null) return;
+
+        AudioSource mySource = GetComponent<AudioSource>();
+        if (mySource == null) return;
+
+        // 1. Play the transfer sound immediately
+        AudioManager.Instance.PlaySound(transferSfxKey, mySource);
+
+        // 2. Pick a random reaction that hasn't played recently
+        if (reactionSfxKeys != null && reactionSfxKeys.Length > 0)
+        {
+            string randomReaction = GetRandomReactionKey();
+
+            // Use a Coroutine or Invoke if you want a slight delay between 
+            // the transfer and the reaction, otherwise play sequence:
+            StartCoroutine(PlayReactionSequence(mySource, randomReaction));
+        }
     }
 
-    float dist = Vector2.Distance(
-        controlled.transform.position,
-        transform.position
-    );
+    private string GetRandomReactionKey()
+    {
+        if (reactionSfxKeys.Length <= HISTORY_LIMIT) return reactionSfxKeys[Random.Range(0, reactionSfxKeys.Length)];
 
-    SetOutline(dist <= controlled.switchControlRadius);
-}
+        int index;
+        do
+        {
+            index = Random.Range(0, reactionSfxKeys.Length);
+        } while (reactionHistory.Contains(index));
+
+        reactionHistory.Add(index);
+        if (reactionHistory.Count > HISTORY_LIMIT) reactionHistory.RemoveAt(0);
+
+        return reactionSfxKeys[index];
+    }
+
+    // Use System.Collections.IEnumerator to avoid the "requires 1 type arguments" error
+    private System.Collections.IEnumerator PlayReactionSequence(AudioSource source, string reactionKey)
+    {
+        // Increase this to 0.5f or 1.0f depending on how long SFX_TransferBody is
+        yield return new WaitForSeconds(0.6f);
+
+        if (AudioManager.Instance != null && source != null)
+        {
+            AudioManager.Instance.PlaySound(reactionKey, source);
+        }
+    }
+    private void UpdateFeedback()
+    {
+        // Never show "nearby" feedback for the currently controlled player
+        if (isControlled) return;
+
+        PlayerController controlled = GetControlledPlayer();
+
+        // IF NO ONE IS SELECTED: Stop particles and exit
+        if (controlled == null)
+        {
+            if (selectionParticles != null && selectionParticles.isPlaying)
+                selectionParticles.Stop();
+            return;
+        }
+
+        if (selectionParticles == null) return;
+
+        float dist = Vector2.Distance(controlled.transform.position, transform.position);
+        bool inRange = dist <= controlled.switchControlRadius;
+
+        // Toggle Particles for proximity (Green for nearby)
+        if (inRange && !selectionParticles.isPlaying)
+        {
+            var main = selectionParticles.main;
+            main.startColor = Color.green;
+            selectionParticles.Play();
+        }
+        else if (!inRange && selectionParticles.isPlaying)
+        {
+            selectionParticles.Stop();
+        }
+    }
 
     protected virtual void Start()
     {
@@ -74,17 +172,6 @@ private void UpdateOutline()
         else
         {
             ConfigureRigidbody2D();
-        }
-        if (spriteRenderer == null)
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-        if (spriteRenderer == null)
-        {
-            Debug.LogWarning("SpriteRenderer component not found on " + gameObject.name);
-        }
-        else
-        {
-            mpb = new MaterialPropertyBlock();
-            SetOutline(false); // start clean
         }
     }
 
@@ -101,8 +188,8 @@ private void UpdateOutline()
     void Update()
     {
         HandleClickSelection();
-        UpdateOutline();
-
+        UpdateFeedback();
+        HandleFootsteps();
         if (!isControlled)
         {
             movement = Vector2.zero;
@@ -122,7 +209,6 @@ private void UpdateOutline()
         movement = distanceToMouse <= mouseTargetTolerance
             ? Vector2.zero
             : (mouseWorldPos - myPos).normalized;
-
     }
 
     void FixedUpdate()
@@ -131,53 +217,64 @@ private void UpdateOutline()
             rb.linearVelocity = movement * moveSpeed;
     }
 
-    public bool IsControlled()
-    {
-        return isControlled;
-    }
+    public bool IsControlled() => isControlled;
 
     public void SetControlled(bool controlled)
     {
         isControlled = controlled;
-        
-        if(controlled)
+
+        // Feedback: Particles
+        if (selectionParticles != null)
         {
-            GetComponent<BehaviorGraphAgent>().enabled = false;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+            var main = selectionParticles.main;
+            if (controlled)
+            {
+                main.startColor = Color.cyan;
+                selectionParticles.Play();
+
+                // CALL THE AUDIO LOGIC HERE:
+                PlayPossessionAudio();
+            }
+            else
+            {
+                selectionParticles.Stop();
+            }
+        }
+
+        // Component Management (Possession Logic)
+        var behaviorAgent = GetComponent<BehaviorGraphAgent>();
+        var navAgent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+
+        if (isControlled)
+        {
+            if (behaviorAgent != null)
+            {
+                behaviorAgent.enabled = false;
+                behaviorAgent.Restart();
+            }
+            if (navAgent != null) navAgent.enabled = false;
         }
         else
         {
-            GetComponent<BehaviorGraphAgent>().Restart();
-            GetComponent<BehaviorGraphAgent>().enabled = true;
-            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+            if (behaviorAgent != null)
+            {
+                behaviorAgent.enabled = true;
+            }
+            if (navAgent != null) navAgent.enabled = true;
         }
+
+        var killLogic = FindFirstObjectByType<KillLogic>();
+        if (killLogic != null) killLogic.PlayerJumped(this);
     }
 
     public static PlayerController GetControlledPlayer()
     {
-        PlayerController[] players =
-            FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
-
+        PlayerController[] players = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
         foreach (PlayerController player in players)
         {
-            if (player.isControlled)
-                return player;
+            if (player.isControlled) return player;
         }
-
         return null;
-    }
-
-    public void MoveToCameraPosition()
-    {
-        Camera cam = Camera.main;
-        if (cam == null) return;
-
-        Vector3 cameraPos = cam.transform.position;
-        cameraPos.z = 0f;
-        transform.position = cameraPos;
-
-        if (rb != null)
-            rb.linearVelocity = Vector2.zero;
     }
 
     private static Vector2 GetMouseWorldPosition()
@@ -195,33 +292,24 @@ private void UpdateOutline()
     {
         if (!Input.GetMouseButtonDown(0)) return;
 
-        Camera cam = Camera.main;
-        if (cam == null) return;
-
         Vector2 mouseWorldPos = GetMouseWorldPosition();
         Collider2D hitCollider = Physics2D.OverlapPoint(mouseWorldPos);
         if (hitCollider == null) return;
 
-        PlayerController clickedPlayer =
-            hitCollider.GetComponent<PlayerController>() ??
-            hitCollider.GetComponentInParent<PlayerController>();
-
+        PlayerController clickedPlayer = hitCollider.GetComponentInParent<PlayerController>();
         if (clickedPlayer == null) return;
 
         PlayerController currentlyControlled = GetControlledPlayer();
+
+        // Only allow switching if we are in range of the current possessor
         if (currentlyControlled != null && clickedPlayer != currentlyControlled)
         {
-            float dist = Vector2.Distance(
-                currentlyControlled.transform.position,
-                clickedPlayer.transform.position
-            );
-
-            if (dist > currentlyControlled.switchControlRadius)
-                return;
+            float dist = Vector2.Distance(currentlyControlled.transform.position, clickedPlayer.transform.position);
+            if (dist > currentlyControlled.switchControlRadius) return;
         }
 
-        foreach (PlayerController player in
-            FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
+        // De-select everyone else
+        foreach (PlayerController player in FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
         {
             player.SetControlled(false);
         }
