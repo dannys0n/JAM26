@@ -221,8 +221,9 @@ public class PlayerController : MonoBehaviour
 
     public void SetControlled(bool controlled)
     {
+        
         isControlled = controlled;
-
+        
         // Feedback: Particles
         if (selectionParticles != null)
         {
@@ -311,7 +312,10 @@ public class PlayerController : MonoBehaviour
         // De-select everyone else
         foreach (PlayerController player in FindObjectsByType<PlayerController>(FindObjectsSortMode.None))
         {
-            player.SetControlled(false);
+            if (player.isControlled)
+            {
+                player.SetControlled(false);
+            }
         }
 
         clickedPlayer.SetControlled(true);
