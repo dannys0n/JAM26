@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7879039618957634346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8063079461704041320}
+  - component: {fileID: 3809269864799594696}
+  m_Layer: 0
+  m_Name: OutfitManagerPrototype
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8063079461704041320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879039618957634346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.372251, y: -0.5890007, z: 0.056601994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3809269864799594696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879039618957634346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd58a09f360384d469936ae9219c5a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testOutfits: []
+  BodySprites:
+  - type: 1
+    description: Prototype Body
+    sprite: {fileID: -2146545457564354342, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 1
+    description: Base
+    sprite: {fileID: 3952882841127547914, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  HatSprites:
+  - type: 2
+    description: Prototype Hat
+    sprite: {fileID: 5457214470858025820, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 2
+    description: Prototype Hat
+    sprite: {fileID: 4237217015851173879, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 2
+    description: Prototype Hat
+    sprite: {fileID: 2957861744826618471, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  HairSprites:
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 5488716138269658673, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: -2099073882720055528, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: -2952650074876349787, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  MaskSprites:
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 5245875613160880999, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: -4828336331106915644, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: -142366324397499712, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  FullSprites:
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 5459571822525930014, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 6422560559412529913, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 5361401876176190963, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  TopSprites:
+  - type: 4
+    description: Prototype Top
+    sprite: {fileID: -3198081277724705582, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 4
+    description: Prototype Top
+    sprite: {fileID: -4959917288543173968, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 4
+    description: Prototype Top
+    sprite: {fileID: -5695693470637676113, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  BottomSprites:
+  - type: 5
+    description: Prototype Bottom
+    sprite: {fileID: 5459571822525930014, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 5
+    description: Prototype Bottom
+    sprite: {fileID: 6422560559412529913, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 5
+    description: Prototype Bottom
+    sprite: {fileID: 5361401876176190963, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  ExistingOutfits: []
