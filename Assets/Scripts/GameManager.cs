@@ -70,4 +70,9 @@ public class GameManager : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
     }
+
+	public void MadeGuess(bool correctGuess)
+  {
+    KilledNPCLogic.instance.MadeGuess(correctGuess);
+	}
 }
