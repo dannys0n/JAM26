@@ -25,7 +25,8 @@ public class OutfitManager : MonoBehaviour
     void Start()
     {
         ExistingOutfits = new List<FullOutfit>();
-        
+
+        DebugTest();
         
     }
 

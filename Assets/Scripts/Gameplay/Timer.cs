@@ -4,16 +4,33 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
   public TextMeshProUGUI TimerText;
-	// Start is called once before the first execution of Update after the MonoBehaviour is created
-	void Start()
-  {
-  }
+  public bool isRunning = false;
+  float time = 0;
 
   // Update is called once per frame
   void Update()
   {
-		TimerText.text = "Time Elapsed: ";
+    if (isRunning == false)
+      return;
 
-		TimerText.text += Time.timeSinceLevelLoad.ToString("F2");  
+    time += Time.deltaTime;
+		TimerText.text = "Time Elapsed: ";
+		TimerText.text += time.ToString("F2");  
+	}
+
+  public void StartTimer()
+  {
+    isRunning = true;
+	}
+
+	public void StopTimer(bool winConditionMet)
+  {
+    isRunning = false;
+
+		if (winConditionMet)
+    {
+      PlayerRating.AddTimeSpent(Time.timeSinceLevelLoad);
+      PlayerRating.IncrementCorrectGuess();
+		}
 	}
 }
