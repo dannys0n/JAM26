@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerRating : MonoBehaviour
 {
-  private static int correctGuesses = 0;
+  private int correctGuesses = 0;
 
   public static PlayerRating instance;
-  public static float timeSpent = 0f;
+  public float timeSpent = 0f;
 
   private void Awake()
   {
@@ -22,24 +22,34 @@ public class PlayerRating : MonoBehaviour
 
   public static void IncrementCorrectGuess()
   {
-    correctGuesses++;
+		instance.correctGuesses++;
   }
 
   public static int GetCorrectGuesses()
   {
-    return correctGuesses;
+    return instance.correctGuesses;
   }
 
-  public static void AddTimeSpent(float timeSpent)
+  public static float GetTotalTimeSpent()
   {
-    timeSpent += timeSpent;
+    return instance.timeSpent;
+	}
+
+	public static void AddTimeSpent(float _timeSpent)
+  {
+    instance.timeSpent += _timeSpent;
   }
 
   public static float CalculateScore()
   {
-    if (timeSpent == 0f)
+    if (instance.timeSpent == 0f)
       return 0f;
 
-    return 1000 * (correctGuesses / timeSpent);
+    float score = 10000000 * (instance.correctGuesses / instance.timeSpent);
+
+
+		Debug.Log("Final score "+ score);
+
+		return score;
 	}
 }
