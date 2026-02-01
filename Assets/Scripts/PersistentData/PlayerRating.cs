@@ -6,7 +6,6 @@ public class PlayerRating : MonoBehaviour
 
   public static PlayerRating instance;
   public float timeSpent = 0f;
-  public float currentTimeSpent = 0f;
 
   private void Awake()
   {
@@ -50,18 +49,6 @@ public class PlayerRating : MonoBehaviour
 
 
 		Debug.Log("Final score "+ score);
-
-		return score;
-	}
-
-  public static float CalculateCurrentScore(float timer, bool guessedCorrect)
-  {
-		if (instance.timeSpent == 0f)
-			return 0f;
-
-		float score = 10000000 * (instance.correctGuesses / instance.currentTimeSpent);
-		Debug.Log("current score " + score);
-		instance.currentTimeSpent = 0;
 
 		return score;
 	}

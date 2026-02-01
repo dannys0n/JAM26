@@ -28,7 +28,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySound(string key, AudioSource emitter)
     {
-
         if (audioTable.TryGetValue(key, out AudioAsset asset))
         {
             emitter.clip = asset.clip;

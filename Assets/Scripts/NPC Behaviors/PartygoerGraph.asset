@@ -19,7 +19,7 @@ MonoBehaviour:
   - rid: 1948325431763534610
   - rid: 1948325431763534627
   - rid: 1948325431763534874
-  m_VersionTimestamp: 639055451913183332
+  m_VersionTimestamp: 639054747526945216
   m_CommandBuffer:
     m_Commands: []
   m_RuntimeBlackboardAsset: {fileID: -5022986047071910659}
@@ -43,7 +43,7 @@ MonoBehaviour:
           m_Value0: 16892987555287596929
           m_Value1: 5534359699603543446
         Name: ActivitySpot
-        IsExposed: 1
+        IsExposed: 0
         m_IsShared: 0
         m_Value: {fileID: 0}
     - rid: 1948325431763534874
@@ -138,7 +138,7 @@ MonoBehaviour:
         BlackboardGroupReferences: []
         Root:
           rid: 2817278667705811093
-        m_VersionTimestamp: 639055473493057242
+        m_VersionTimestamp: 639054780095099844
     - rid: 1948325431763534613
       type: {class: BlackboardReference, ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -417,7 +417,7 @@ MonoBehaviour:
   - rid: 1948325431763534937
   - rid: 2817278667705811036
   - rid: 2817278667705811079
-  m_VersionTimestamp: 639055473493057242
+  m_VersionTimestamp: 639054780095099844
   m_SerializedVersion: 2
   m_DebugInfo: {fileID: 7807913900437807421}
   m_RuntimeGraph: {fileID: -4958875333090791493}
@@ -964,7 +964,7 @@ MonoBehaviour:
           m_Value0: 0
           m_Value1: 0
         Name: 
-        m_Value: 5
+        m_Value: 1
     - rid: 1948325431763534704
       type: {class: 'BlackboardVariable`1[[System.Single, mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
       data:
@@ -972,7 +972,7 @@ MonoBehaviour:
           m_Value0: 0
           m_Value1: 0
         Name: 
-        m_Value: 12
+        m_Value: 3
     - rid: 1948325431763534720
       type: {class: ActionNodeModel, ns: Unity.Behavior, asm: Unity.Behavior.Authoring}
       data:
