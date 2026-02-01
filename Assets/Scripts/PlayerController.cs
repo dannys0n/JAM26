@@ -1,4 +1,5 @@
 using UnityEngine;
+using Unity.Behavior;
 
 /// <summary>
 /// Simple player controller for isometric games using Rigidbody2D.
@@ -138,6 +139,18 @@ private void UpdateOutline()
     public void SetControlled(bool controlled)
     {
         isControlled = controlled;
+        
+        if(controlled)
+        {
+            GetComponent<BehaviorGraphAgent>().enabled = false;
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
+        }
+        else
+        {
+            GetComponent<BehaviorGraphAgent>().Restart();
+            GetComponent<BehaviorGraphAgent>().enabled = true;
+            GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
+        }
     }
 
     public static PlayerController GetControlledPlayer()

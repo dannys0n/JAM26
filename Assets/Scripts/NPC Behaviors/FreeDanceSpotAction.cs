@@ -14,8 +14,8 @@ public partial class FreeActivitySpotAction : Action
     {
         if (ActivitySpot.Value == null)
         {
-            Debug.LogError("AgentSpot is null in FreeActivitySpotAction.");
-            return Status.Failure;
+            //Debug.LogError("AgentSpot is null in FreeActivitySpotAction.");
+            return Status.Success;
         }
         AgentSpot spotComponent = ActivitySpot.Value.GetComponent<AgentSpot>();
         if (spotComponent == null)
