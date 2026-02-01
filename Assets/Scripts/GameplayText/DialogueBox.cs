@@ -30,7 +30,14 @@ public class DialogueBox : MonoBehaviour
 	private void Update()
 	{
 		if (!isActive)
-			return;
+		{
+			if (dialogueQueue.Count > 0)
+			{
+				Open();
+			}
+			else
+				return;
+		}
 
 		if (InputTriggered())
 		{
