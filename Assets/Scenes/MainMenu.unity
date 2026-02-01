@@ -787,6 +787,86 @@ MonoBehaviour:
     volume: 1
     pitch: 1
     loop: 0
+  - key: SFX_Male_Reaction_4
+    clip: {fileID: 8300000, guid: 27040951293fb4744b3d631b2af6c2b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_01
+    clip: {fileID: 8300000, guid: 45483d05a616ab54bb318c30b1069317, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_02
+    clip: {fileID: 8300000, guid: f261cf8b492558344aa2540fdd6225a0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_03
+    clip: {fileID: 8300000, guid: 40c871435acb9c545aeb811d78a7244c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_04
+    clip: {fileID: 8300000, guid: 09cc57a45d8cc374187dd15ae87e5dda, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_05
+    clip: {fileID: 8300000, guid: 6fe63410abdf50f498e989b86eb3ae71, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_06
+    clip: {fileID: 8300000, guid: 9b604b41738d90043930f2609cda9a45, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_07
+    clip: {fileID: 8300000, guid: c57c0767703805142a21c7a9e1e69758, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_08
+    clip: {fileID: 8300000, guid: 3a2f72e399b03c74dadda16e41210c64, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_09
+    clip: {fileID: 8300000, guid: f27db29c0b3c0e840960d75965e59896, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_10
+    clip: {fileID: 8300000, guid: 477bfd6f00c05f44abe2ded2f87c643a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_11
+    clip: {fileID: 8300000, guid: 0121af8a5e2e3b24187bca3da342e9c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: Wheres_Waltzo_v2_Loop
+    clip: {fileID: 8300000, guid: 720534f3e246bdb4393a80526d8970c3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: Pookie_In_The_Mask_v2_Loop
+    clip: {fileID: 8300000, guid: d0e2fb69cf9bd3b45aef1d3c857ace02, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: Mask_Parade_v1_Loop
+    clip: {fileID: 8300000, guid: cdede55d376bed64aa1381b4e4c87d5e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: Ambience_01_Loop
+    clip: {fileID: 8300000, guid: f155b8b54eff5854f883699b2f84cdcb, type: 3}
+    volume: 0.32
+    pitch: 1
+    loop: 1
 --- !u!4 &729142730
 Transform:
   m_ObjectHideFlags: 0
