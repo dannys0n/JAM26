@@ -38,17 +38,18 @@ public class UIAudioManager : MonoBehaviour
         Play("UI_Button");
     }
 
-    public void PlayLevelCorrectGuess()
+    public void PlayLevel1CorrectGuess()
     {
-        // Determines Lvl 1, 2, or 3 based on scene name
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (sceneName.Contains("1")) Play("UI_CorrectGuess_1");
-        else if (sceneName.Contains("2")) Play("UI_CorrectGuess_2");
-        else if (sceneName.Contains("3")) Play("UI_CorrectGuess_3");
-        else PlayIncorrectGuess();
+        Play("UI_CorrectGuess_1");
     }
-
+    public void PlayLevel2CorrectGuess()
+    {
+        Play("UI_CorrectGuess_2");
+    }
+    public void PlayLevel3CorrectGuess()
+    {
+        Play("UI_CorrectGuess_3");
+    }
     public void PlayIncorrectGuess()
     {
         Play("UI_IncorrectGuess");
