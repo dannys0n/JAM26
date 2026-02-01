@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayLogic : MonoBehaviour
 {
@@ -115,6 +116,21 @@ public class GameplayLogic : MonoBehaviour
 
     }
 
+    public void RetryLevel()
+    {
+        // Get the name of the current scene
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        // Load the current scene again
+        SceneManager.LoadScene(sceneName);
+    }
+
+
+    public void NextLevel()
+    {
+        // Load the next scene in the build index?
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
 
 
     
