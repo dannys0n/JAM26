@@ -146,7 +146,11 @@ public class PlayerController : MonoBehaviour
 
         if (isControlled)
         {
-            if (behaviorAgent != null) behaviorAgent.enabled = false;
+            if (behaviorAgent != null)
+            {
+                behaviorAgent.enabled = false;
+                behaviorAgent.Restart();
+            }
             if (navAgent != null) navAgent.enabled = false;
         }
         else
@@ -154,7 +158,6 @@ public class PlayerController : MonoBehaviour
             if (behaviorAgent != null)
             {
                 behaviorAgent.enabled = true;
-                behaviorAgent.Restart();
             }
             if (navAgent != null) navAgent.enabled = true;
         }
