@@ -140,7 +140,8 @@ private void UpdateOutline()
     {
         isControlled = controlled;
         
-        if(controlled)
+        //I committed this crime CJ is innocent
+        if(isControlled)
         {
             GetComponent<BehaviorGraphAgent>().enabled = false;
             GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = false;
@@ -151,7 +152,10 @@ private void UpdateOutline()
             GetComponent<BehaviorGraphAgent>().enabled = true;
             GetComponent<UnityEngine.AI.NavMeshAgent>().enabled = true;
         }
+
+        FindFirstObjectByType<KillLogic>().PlayerJumped(this);
     }
+
 
     public static PlayerController GetControlledPlayer()
     {
@@ -227,5 +231,6 @@ private void UpdateOutline()
         }
 
         clickedPlayer.SetControlled(true);
+        
     }
 }

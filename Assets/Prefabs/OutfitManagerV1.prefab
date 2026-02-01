@@ -1,0 +1,116 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4219461703051099764
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3612086547704225576}
+  - component: {fileID: 1977169908483888778}
+  m_Layer: 0
+  m_Name: OutfitManagerV1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3612086547704225576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219461703051099764}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.372251, y: -0.5890007, z: 0.056601994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1977169908483888778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219461703051099764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd58a09f360384d469936ae9219c5a0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testOutfits: []
+  OnlyFullOutfits: 1
+  BodySprites:
+  - type: 1
+    description: Prototype Body
+    sprite: {fileID: 21300000, guid: 2262664c10bc6c0449ab5980d224afef, type: 3}
+  - type: 1
+    description: Base
+    sprite: {fileID: 21300000, guid: ce33965bdecd6264899356497cf7c36a, type: 3}
+  - type: 1
+    description: Base
+    sprite: {fileID: 21300000, guid: a197d887f2bfd094b8c6b184e0ba46a1, type: 3}
+  HatSprites:
+  - type: 2
+    description: Prototype Hat
+    sprite: {fileID: 5457214470858025820, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 2
+    description: Prototype Hat
+    sprite: {fileID: 4237217015851173879, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  - type: 2
+    description: Prototype Hat
+    sprite: {fileID: 2957861744826618471, guid: c2a78bae882aef748ad2e1ad8c39e1f1, type: 3}
+  HairSprites:
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 3dbe365eb5397b64a88429d99565017b, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 995c2ad8b1a776d4f90f1e45c9233038, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 87fa9a08141c074428b289c12e870861, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: c9013d4c44dc09d4db6b52025eac5c93, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 32b4a62551eeb6841896c6606fd58c06, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 3d4142f91ab04bd49901564ecbc51e80, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 38bf810b2f6e91848aa42dff69c3a1be, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: 15c1b7141ff887b4daaf3b7b51b24332, type: 3}
+  - type: 7
+    description: Prototype Hair
+    sprite: {fileID: 21300000, guid: ada6fbbfd71e6104899447a3a15e9dcf, type: 3}
+  MaskSprites:
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: 20bec11c4a866d64fb3d3396824d3909, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: b49a71529a9cb8848a1e28e265383ec0, type: 3}
+  - type: 3
+    description: Prototype Mask
+    sprite: {fileID: 21300000, guid: ddb3019eb744d1b45b3849c2ec33cb5b, type: 3}
+  FullSprites:
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: 433e980834744994980fe8650448ee4a, type: 3}
+  - type: 6
+    description: Prototype Full
+    sprite: {fileID: 21300000, guid: ccd94573a4289404d9e82f6a6f85bd7f, type: 3}
+  TopSprites: []
+  BottomSprites: []
+  ExistingOutfits: []
