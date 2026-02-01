@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioAsset[] library;
     private Dictionary<string, AudioAsset> audioTable = new Dictionary<string, AudioAsset>();
-
+    private HashSet<AudioSource> activeEmitters = new HashSet<AudioSource>();
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -35,6 +35,12 @@ public class AudioManager : MonoBehaviour
             emitter.pitch = asset.pitch;
             emitter.loop = asset.loop;
             emitter.Play();
+
+            // ADD THIS LINE BELOW:
+            if (emitter != null && !activeEmitters.Contains(emitter))
+            {
+                activeEmitters.Add(emitter);
+            }
         }
         else
         {
@@ -66,5 +72,18 @@ public class AudioManager : MonoBehaviour
 
         emitter.Stop();
         emitter.volume = startVolume;
+    }
+
+    public void StopAllSounds()
+    {
+        foreach (var emitter in activeEmitters)
+        {
+            if (emitter != null)
+            {
+                emitter.Stop();
+            }
+        }
+        // Optional: clear the set, though sources might be reused
+        activeEmitters.RemoveWhere(e => e == null);
     }
 }
