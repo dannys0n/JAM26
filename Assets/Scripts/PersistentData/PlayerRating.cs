@@ -59,7 +59,11 @@ public class PlayerRating : MonoBehaviour
 		if (instance.timeSpent == 0f)
 			return 0f;
 
-		float score = 10000000 * (instance.correctGuesses / instance.currentTimeSpent);
+    int guess = guessedCorrect ? 1 : 0;
+
+		Timer.instance.StopTimer(guessedCorrect);
+
+		float score = 10000000 * (guess / instance.currentTimeSpent);
 		Debug.Log("current score " + score);
 		instance.currentTimeSpent = 0;
 
