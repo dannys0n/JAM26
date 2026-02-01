@@ -1,6 +1,7 @@
 using UnityEngine;
 using Unity.Behavior;
-
+using System.Collections;         // Required for IEnumerator
+using System.Collections.Generic; // Required for List<>
 /// <summary>
 /// Simple player controller for isometric games using Rigidbody2D.
 /// Controlled entity always moves towards the mouse.
@@ -27,7 +28,106 @@ public class PlayerController : MonoBehaviour
 
     protected Rigidbody2D rb;
     private Vector2 movement;
+    [Header("Audio Settings")]
+    [Tooltip("The key for the initial body transfer sound in AudioManager")]
+    [SerializeField] private string transferSfxKey = "SFX_TransferBody";
 
+    [Tooltip("List of keys for reaction sounds in AudioManager")]
+    [SerializeField] private string[] reactionSfxKeys;
+
+    [Header("Footstep Settings")]
+    [SerializeField] private string[] footstepSfxKeys;
+    [SerializeField] private float footstepInterval = 0.4f; // Time between steps
+    private float footstepTimer;
+
+    private static List<int> footstepHistory = new List<int>();
+    private const int FOOTSTEP_HISTORY_LIMIT = 2; // Don't repeat last 2 steps
+    private static List<int> reactionHistory = new List<int>();
+    private const int HISTORY_LIMIT = 3; // Avoid repeating the last 3 sounds
+    private void HandleFootsteps()
+    {
+        // Only play footsteps if we are actually moving and controlled
+        if (!isControlled || movement == Vector2.zero) return;
+
+        footstepTimer -= Time.deltaTime;
+
+        if (footstepTimer <= 0)
+        {
+            PlayRandomFootstep();
+            // Adjust interval based on speed if you want (e.g., footstepInterval / moveSpeed)
+            footstepTimer = footstepInterval;
+        }
+    }
+
+    private void PlayRandomFootstep()
+    {
+        if (footstepSfxKeys == null || footstepSfxKeys.Length == 0 || AudioManager.Instance == null) return;
+
+        int index;
+        // Prevent repeating the last 2 sounds
+        do
+        {
+            index = Random.Range(0, footstepSfxKeys.Length);
+        } while (footstepHistory.Contains(index));
+
+        footstepHistory.Add(index);
+        if (footstepHistory.Count > FOOTSTEP_HISTORY_LIMIT) footstepHistory.RemoveAt(0);
+
+        AudioSource mySource = GetComponent<AudioSource>();
+        if (mySource != null)
+        {
+            // Use the AudioManager to play the selected footstep key
+            AudioManager.Instance.PlaySound(footstepSfxKeys[index], mySource);
+        }
+    }
+    private void PlayPossessionAudio()
+    {
+        if (AudioManager.Instance == null) return;
+
+        AudioSource mySource = GetComponent<AudioSource>();
+        if (mySource == null) return;
+
+        // 1. Play the transfer sound immediately
+        AudioManager.Instance.PlaySound(transferSfxKey, mySource);
+
+        // 2. Pick a random reaction that hasn't played recently
+        if (reactionSfxKeys != null && reactionSfxKeys.Length > 0)
+        {
+            string randomReaction = GetRandomReactionKey();
+
+            // Use a Coroutine or Invoke if you want a slight delay between 
+            // the transfer and the reaction, otherwise play sequence:
+            StartCoroutine(PlayReactionSequence(mySource, randomReaction));
+        }
+    }
+
+    private string GetRandomReactionKey()
+    {
+        if (reactionSfxKeys.Length <= HISTORY_LIMIT) return reactionSfxKeys[Random.Range(0, reactionSfxKeys.Length)];
+
+        int index;
+        do
+        {
+            index = Random.Range(0, reactionSfxKeys.Length);
+        } while (reactionHistory.Contains(index));
+
+        reactionHistory.Add(index);
+        if (reactionHistory.Count > HISTORY_LIMIT) reactionHistory.RemoveAt(0);
+
+        return reactionSfxKeys[index];
+    }
+
+    // Use System.Collections.IEnumerator to avoid the "requires 1 type arguments" error
+    private System.Collections.IEnumerator PlayReactionSequence(AudioSource source, string reactionKey)
+    {
+        // Increase this to 0.5f or 1.0f depending on how long SFX_TransferBody is
+        yield return new WaitForSeconds(0.6f);
+
+        if (AudioManager.Instance != null && source != null)
+        {
+            AudioManager.Instance.PlaySound(reactionKey, source);
+        }
+    }
     private void UpdateFeedback()
     {
         // Never show "nearby" feedback for the currently controlled player
@@ -89,7 +189,7 @@ public class PlayerController : MonoBehaviour
     {
         HandleClickSelection();
         UpdateFeedback();
-
+        HandleFootsteps();
         if (!isControlled)
         {
             movement = Vector2.zero;
@@ -129,10 +229,11 @@ public class PlayerController : MonoBehaviour
             var main = selectionParticles.main;
             if (controlled)
             {
-                main.startColor = Color.cyan; // Active player color
+                main.startColor = Color.cyan;
                 selectionParticles.Play();
 
-                // HARDCODE YOUR AUDIO LOGIC HERE
+                // CALL THE AUDIO LOGIC HERE:
+                PlayPossessionAudio();
             }
             else
             {

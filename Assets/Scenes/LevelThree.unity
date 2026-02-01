@@ -3141,6 +3141,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7148de92143120498d2c9a573b876b9, type: 3}
+--- !u!114 &663491672 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7343223869456385911, guid: e7148de92143120498d2c9a573b876b9, type: 3}
+  m_PrefabInstance: {fileID: 663491671}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9ce0ab390f6cc047bc7e6c4f744f6e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &665453604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4988,6 +4999,14 @@ PrefabInstance:
     - target: {fileID: 1597414279155511987, guid: 92707fb5f69ba82478e60b58e604c25c, type: 3}
       propertyPath: m_Name
       value: HUD Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7581126431406709394, guid: 92707fb5f69ba82478e60b58e604c25c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 663491672}
+    - target: {fileID: 7581126431406709394, guid: 92707fb5f69ba82478e60b58e604c25c, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: KillSubmitted
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
