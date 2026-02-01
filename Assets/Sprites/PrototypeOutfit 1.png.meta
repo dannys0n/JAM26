@@ -1,0 +1,585 @@
+fileFormatVersion: 2
+guid: c2a78bae882aef748ad2e1ad8c39e1f1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5488716138269658673
+    second: PrototypeOutfit 1_0
+  - first:
+      213: -2099073882720055528
+    second: PrototypeOutfit 1_1
+  - first:
+      213: -2952650074876349787
+    second: PrototypeOutfit 1_2
+  - first:
+      213: -2146545457564354342
+    second: PrototypeOutfit 1_3
+  - first:
+      213: 3952882841127547914
+    second: PrototypeOutfit 1_4
+  - first:
+      213: -7534968812784108835
+    second: PrototypeOutfit 1_5
+  - first:
+      213: 5459571822525930014
+    second: PrototypeOutfit 1_6
+  - first:
+      213: 6422560559412529913
+    second: PrototypeOutfit 1_7
+  - first:
+      213: 5361401876176190963
+    second: PrototypeOutfit 1_8
+  - first:
+      213: -3198081277724705582
+    second: PrototypeOutfit 1_9
+  - first:
+      213: -4959917288543173968
+    second: PrototypeOutfit 1_10
+  - first:
+      213: -5695693470637676113
+    second: PrototypeOutfit 1_11
+  - first:
+      213: 5245875613160880999
+    second: PrototypeOutfit 1_12
+  - first:
+      213: -4828336331106915644
+    second: PrototypeOutfit 1_13
+  - first:
+      213: -142366324397499712
+    second: PrototypeOutfit 1_14
+  - first:
+      213: 5457214470858025820
+    second: PrototypeOutfit 1_15
+  - first:
+      213: 4237217015851173879
+    second: PrototypeOutfit 1_16
+  - first:
+      213: 2957861744826618471
+    second: PrototypeOutfit 1_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13e448e4f36db2c40800000000000000
+      internalID: 5488716138269658673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_1
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 420
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81fcb2fcc679ed2e0800000000000000
+      internalID: -2099073882720055528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_2
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 420
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a2f6f496641607d0800000000000000
+      internalID: -2952650074876349787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad8f5ab7740f532e0800000000000000
+      internalID: -2146545457564354342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_4
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 336
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a04f42030067bd630800000000000000
+      internalID: 3952882841127547914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_5
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 336
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dda3b5869c96e6790800000000000000
+      internalID: -7534968812784108835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1ad36385ab44cb40800000000000000
+      internalID: 5459571822525930014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_7
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 252
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fac734fcc4812950800000000000000
+      internalID: 6422560559412529913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_8
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 252
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fd3897b996876a40800000000000000
+      internalID: 5361401876176190963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc3466a5022e93d0800000000000000
+      internalID: -3198081277724705582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_10
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 168
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b2c01d3185da2bb0800000000000000
+      internalID: -4959917288543173968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 168
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9212d27f4d4f0b0800000000000000
+      internalID: -5695693470637676113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bb65a83181dc840800000000000000
+      internalID: 5245875613160880999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_13
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 84
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca624040bd4efcb0800000000000000
+      internalID: -4828336331106915644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_14
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 84
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ca1f4e0596360ef0800000000000000
+      internalID: -142366324397499712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b2d9ec5abebbb40800000000000000
+      internalID: 5457214470858025820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_16
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 0
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f7cc0a1d6e9dca30800000000000000
+      internalID: 4237217015851173879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeOutfit 1_17
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 52
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7629b13e59f6c0920800000000000000
+      internalID: 2957861744826618471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c136eb8ec2a2311418bea5b387e59566
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PrototypeOutfit 1_0: 5488716138269658673
+      PrototypeOutfit 1_1: -2099073882720055528
+      PrototypeOutfit 1_10: -4959917288543173968
+      PrototypeOutfit 1_11: -5695693470637676113
+      PrototypeOutfit 1_12: 5245875613160880999
+      PrototypeOutfit 1_13: -4828336331106915644
+      PrototypeOutfit 1_14: -142366324397499712
+      PrototypeOutfit 1_15: 5457214470858025820
+      PrototypeOutfit 1_16: 4237217015851173879
+      PrototypeOutfit 1_17: 2957861744826618471
+      PrototypeOutfit 1_2: -2952650074876349787
+      PrototypeOutfit 1_3: -2146545457564354342
+      PrototypeOutfit 1_4: 3952882841127547914
+      PrototypeOutfit 1_5: -7534968812784108835
+      PrototypeOutfit 1_6: 5459571822525930014
+      PrototypeOutfit 1_7: 6422560559412529913
+      PrototypeOutfit 1_8: 5361401876176190963
+      PrototypeOutfit 1_9: -3198081277724705582
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
