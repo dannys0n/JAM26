@@ -4,11 +4,23 @@ using UnityEngine;
 public class Timer : MonoBehaviour
 {
   public TextMeshProUGUI TimerText;
-  public bool isRunning = false;
+  public static Timer instance;
+	public bool isRunning = false;
   float time = 0;
 
-  // Update is called once per frame
-  void Update()
+	private void Awake()
+	{
+		instance = this;
+	}
+
+	private void OnDestroy()
+	{
+		if (instance == this)
+			instance = null;
+	}
+
+	// Update is called once per frame
+	void Update()
   {
     if (isRunning == false)
       return;
