@@ -30,7 +30,12 @@ public class PlayerRating : MonoBehaviour
     return instance.correctGuesses;
   }
 
-  public static void AddTimeSpent(float _timeSpent)
+  public static float GetTotalTimeSpent()
+  {
+    return instance.timeSpent;
+	}
+
+	public static void AddTimeSpent(float _timeSpent)
   {
     instance.timeSpent += _timeSpent;
   }
