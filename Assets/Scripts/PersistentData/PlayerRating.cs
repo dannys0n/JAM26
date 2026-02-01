@@ -1,10 +1,10 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerRating : MonoBehaviour
 {
   private int correctGuesses = 0;
-
-  public static PlayerRating instance;
+	public static PlayerRating instance;
   public float timeSpent = 0f;
   public float currentTimeSpent = 0f;
 
@@ -64,7 +64,9 @@ public class PlayerRating : MonoBehaviour
 		Timer.instance.StopTimer(guessedCorrect);
 
 		float score = 10000000 * (guess / Time.timeSinceLevelLoad);
-		Debug.Log("current score " + score);
+
+    Timer.instance.TimerText.text = "Your score " + score;
+		Debug.Log("Your score " + score);
 		instance.currentTimeSpent = 0;
 
 		return score;
