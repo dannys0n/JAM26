@@ -565,6 +565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 701747602}
   - component: {fileID: 701747603}
+  - component: {fileID: 701747604}
   m_Layer: 5
   m_Name: MainMenuLogic
   m_TagString: Untagged
@@ -604,6 +605,283 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CreditsScreen: {fileID: 1391377450}
+--- !u!82 &701747604
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701747601}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!1 &729142728
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 729142730}
+  - component: {fileID: 729142729}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &729142729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729142728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7831eb2ab6b51e344988f0ef2727fb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  library:
+  - key: MainMenuMusic
+    clip: {fileID: 8300000, guid: 848d9bd911aa3c647ae5034c46db660a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: SFX_TransferBody
+    clip: {fileID: 8300000, guid: c202806d7399c734caf146aad5dd789c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Female_Reaction_1
+    clip: {fileID: 8300000, guid: 2a26871c734a32143be38ddb802a400c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Female_Reaction_2
+    clip: {fileID: 8300000, guid: 60b5120c74b7f4746bdb83aa9c307177, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Female_Reaction_3
+    clip: {fileID: 8300000, guid: 2cc9ff4d53b95f847bc44d240daa3a02, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Female_Reaction_4
+    clip: {fileID: 8300000, guid: 81aec9583d790924f9f7deb7ba6fdf5c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Female_Reaction_5
+    clip: {fileID: 8300000, guid: ee9d955d55ff99444b25a005dce0d3e7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Male_Reaction_1
+    clip: {fileID: 8300000, guid: cdcfef213de9cce428fe60ad3c75b332, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Male_Reaction_2
+    clip: {fileID: 8300000, guid: d7b05ff0d0e77b2419a3c8bcc93fcd68, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Male_Reaction_3
+    clip: {fileID: 8300000, guid: 47879225dac32a346ae62c0c3eb2e1a2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Male_Reaction_3
+    clip: {fileID: 8300000, guid: 47879225dac32a346ae62c0c3eb2e1a2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Male_Reaction_4
+    clip: {fileID: 8300000, guid: 27040951293fb4744b3d631b2af6c2b3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_01
+    clip: {fileID: 8300000, guid: 45483d05a616ab54bb318c30b1069317, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_02
+    clip: {fileID: 8300000, guid: f261cf8b492558344aa2540fdd6225a0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_03
+    clip: {fileID: 8300000, guid: 40c871435acb9c545aeb811d78a7244c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_04
+    clip: {fileID: 8300000, guid: 09cc57a45d8cc374187dd15ae87e5dda, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_05
+    clip: {fileID: 8300000, guid: 6fe63410abdf50f498e989b86eb3ae71, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_06
+    clip: {fileID: 8300000, guid: 9b604b41738d90043930f2609cda9a45, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_07
+    clip: {fileID: 8300000, guid: c57c0767703805142a21c7a9e1e69758, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_08
+    clip: {fileID: 8300000, guid: 3a2f72e399b03c74dadda16e41210c64, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_09
+    clip: {fileID: 8300000, guid: f27db29c0b3c0e840960d75965e59896, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_10
+    clip: {fileID: 8300000, guid: 477bfd6f00c05f44abe2ded2f87c643a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: SFX_Footsteps_11
+    clip: {fileID: 8300000, guid: 0121af8a5e2e3b24187bca3da342e9c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+  - key: Wheres_Waltzo_v2_Loop
+    clip: {fileID: 8300000, guid: 720534f3e246bdb4393a80526d8970c3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: Pookie_In_The_Mask_v2_Loop
+    clip: {fileID: 8300000, guid: d0e2fb69cf9bd3b45aef1d3c857ace02, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: Mask_Parade_v1_Loop
+    clip: {fileID: 8300000, guid: cdede55d376bed64aa1381b4e4c87d5e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+  - key: Ambience_01_Loop
+    clip: {fileID: 8300000, guid: f155b8b54eff5854f883699b2f84cdcb, type: 3}
+    volume: 0.32
+    pitch: 1
+    loop: 1
+--- !u!4 &729142730
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729142728}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.2087736, y: -2.3390934, z: 0.13490926}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &734738463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1689,3 +1967,4 @@ SceneRoots:
   - {fileID: 1071662913}
   - {fileID: 298071844}
   - {fileID: 598382307312309721}
+  - {fileID: 729142730}
