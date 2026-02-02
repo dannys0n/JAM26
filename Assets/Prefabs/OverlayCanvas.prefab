@@ -3071,6 +3071,7 @@ MonoBehaviour:
   killedDisplay: {fileID: 5752168257857002756}
   Body: {fileID: 6425654876338057471}
   Skeleton: {fileID: 21300000, guid: d37508f3d8b56374ba4ebaeab0913152, type: 3}
+  NextLevelButton: {fileID: 6200845567675833850}
 --- !u!1 &6856474410726849646
 GameObject:
   m_ObjectHideFlags: 0

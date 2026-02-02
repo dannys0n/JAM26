@@ -10,6 +10,7 @@ public class WinScreen : MonoBehaviour
     public TargetOutfitUI killedDisplay;
     public Image Body;
     public Sprite Skeleton;
+    public GameObject NextLevelButton;
 
 
     public void ShowWinScreen(FullOutfit killed)
@@ -17,6 +18,11 @@ public class WinScreen : MonoBehaviour
         WinPanel.SetActive(true);
         killedDisplay.UpdateDisplay(killed);
         Body.sprite = Skeleton;
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            NextLevelButton.SetActive(false);
+        }
 
     }
 
