@@ -3891,7 +3891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abacd5cb51c1e5448c5d0aa80d0b1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMusicKey: 'Pookie_In_The_Mask_v2_Loop '
+  sceneMusicKey: Pookie_In_The_Mask_v2_Loop
   ambienceKey: Ambience_01_Loop
   musicSource: {fileID: 1542808799}
   ambienceSource: {fileID: 1542808802}

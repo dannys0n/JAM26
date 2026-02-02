@@ -2410,7 +2410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3abacd5cb51c1e5448c5d0aa80d0b1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMusicKey: 'Mask_Parade_v1_Loop '
+  sceneMusicKey: Mask_Parade_v1_Loop
   ambienceKey: Ambience_01_Loop
   musicSource: {fileID: 419585705}
   ambienceSource: {fileID: 419585708}
