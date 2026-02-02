@@ -95,7 +95,7 @@ public class GameplayLogic : MonoBehaviour
     //called when the kill button is pressed or if player right clicks
     public void KillSubmitted()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
 
         //check if there is an NPC being controlled
         if(PlayerController.GetControlledPlayer() == null)
@@ -109,9 +109,9 @@ public class GameplayLogic : MonoBehaviour
         if(CompareOutfits(killedNPC, currentTarget))
         {
             Debug.Log("Correct target killed");
+            PlayerRating.CalculateCurrentScore(true);
 
-
-            FindFirstObjectByType<UIAudioManager>()?.PlayLevel1CorrectGuess();
+			      FindFirstObjectByType<UIAudioManager>()?.PlayLevel1CorrectGuess();
 
             winScreen.gameObject.SetActive(true);
             winScreen.ShowWinScreen(currentTarget);
@@ -120,8 +120,8 @@ public class GameplayLogic : MonoBehaviour
         else
         {
             Debug.Log("YOU FAILED");
-
-            FindFirstObjectByType<UIAudioManager>()?.PlayIncorrectGuess();
+			      PlayerRating.CalculateCurrentScore(false);
+			      FindFirstObjectByType<UIAudioManager>()?.PlayIncorrectGuess();
 
             failScreen.gameObject.SetActive(true);
             failScreen.ShowFailScreen(currentTarget, killedNPC);

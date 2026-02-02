@@ -14,22 +14,22 @@ public class KilledNPCLogic : MonoBehaviour
 
   private void Start()
   {
-    CorrectGuessImage.enabled = false;
-    IncorrectGuessImage.enabled = false;
+    //CorrectGuessImage.enabled = false;
+    //IncorrectGuessImage.enabled = false;
   }
 
 
 	public void MadeGuess(bool correctGuess)
   {
-    if (correctGuess)
-    {
-      CorrectGuessImage.enabled = true;
-      IncorrectGuessImage.enabled = false;
-    }
-    else
-    {
-      CorrectGuessImage.enabled = false;
-      IncorrectGuessImage.enabled = true;
-    }
+    //if (correctGuess)
+    //{
+    //  CorrectGuessImage.enabled = true;
+    //  IncorrectGuessImage.enabled = false;
+    //}
+    //else
+    //{
+    //  CorrectGuessImage.enabled = false;
+    //  IncorrectGuessImage.enabled = true;
+    //}
 	}
 }
