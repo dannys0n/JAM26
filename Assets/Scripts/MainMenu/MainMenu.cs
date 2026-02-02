@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("LevelOne");
         AudioManager.Instance.StopAllSounds();
     }
 
