@@ -152,7 +152,7 @@ public class PlayerController : MonoBehaviour
         if (inRange && !selectionParticles.isPlaying)
         {
             var main = selectionParticles.main;
-            main.startColor = Color.green;
+            main.startColor = Color.white;
             selectionParticles.Play();
         }
         else if (!inRange && selectionParticles.isPlaying)
@@ -230,7 +230,7 @@ public class PlayerController : MonoBehaviour
             var main = selectionParticles.main;
             if (controlled)
             {
-                main.startColor = Color.cyan;
+                main.startColor = Color.red;
                 selectionParticles.Play();
 
                 // CALL THE AUDIO LOGIC HERE:
