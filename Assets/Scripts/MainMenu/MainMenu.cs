@@ -44,4 +44,9 @@ public class MainMenu : MonoBehaviour
     {
         CreditsScreen.SetActive(!CreditsScreen.activeSelf);
     }
+
+    public void BackToMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+	}
 }
