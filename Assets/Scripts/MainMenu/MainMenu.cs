@@ -3,6 +3,7 @@ using UnityEngine;
 public class MainMenu : MonoBehaviour
 {
     public GameObject CreditsScreen;
+  public GameObject Title;
     private AudioSource menuAudioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,7 +44,9 @@ public class MainMenu : MonoBehaviour
     public void Credits()
     {
         CreditsScreen.SetActive(!CreditsScreen.activeSelf);
-    }
+		Title.SetActive(!Title.activeSelf);
+
+	}
 
     public void BackToMenu()
     {
