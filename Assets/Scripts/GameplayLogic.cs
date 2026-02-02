@@ -14,6 +14,8 @@ public class GameplayLogic : MonoBehaviour
 
     [Header("UI References")]
     public StartLevelScreen startScreen;
+    public FailScreen failScreen;
+    public WinScreen winScreen;
     
 
     //GAMEPLAY STATES:
@@ -27,6 +29,8 @@ public class GameplayLogic : MonoBehaviour
     void Start()
     {
         startScreen = FindFirstObjectByType<StartLevelScreen>();
+        failScreen = FindFirstObjectByType<FailScreen>();
+        winScreen = FindFirstObjectByType<WinScreen>();
 
         PreGame();
     }
@@ -55,12 +59,17 @@ public class GameplayLogic : MonoBehaviour
         //Show the start screen UI with target data
         startScreen.ShowPanel(currentTarget);
 
+        //hide the other panels
+        failScreen.gameObject.SetActive(false);
+        winScreen.gameObject.SetActive(false);
+
     }
 
     //method for when the start button is pressed
     public void GameStart()
     {
         GameActive = true;
+        Time.timeScale = 1;
 
         //start the timer
 
@@ -86,6 +95,8 @@ public class GameplayLogic : MonoBehaviour
     //called when the kill button is pressed or if player right clicks
     public void KillSubmitted()
     {
+        Time.timeScale = 0;
+
         //check if there is an NPC being controlled
         if(PlayerController.GetControlledPlayer() == null)
         {
@@ -98,10 +109,22 @@ public class GameplayLogic : MonoBehaviour
         if(CompareOutfits(killedNPC, currentTarget))
         {
             Debug.Log("Correct target killed");
+
+
+            FindFirstObjectByType<UIAudioManager>()?.PlayLevel1CorrectGuess();
+
+            winScreen.gameObject.SetActive(true);
+            winScreen.ShowWinScreen(currentTarget);
+
         }
         else
         {
             Debug.Log("YOU FAILED");
+
+            FindFirstObjectByType<UIAudioManager>()?.PlayIncorrectGuess();
+
+            failScreen.gameObject.SetActive(true);
+            failScreen.ShowFailScreen(currentTarget, killedNPC);
         }
 
         //stop the timer
