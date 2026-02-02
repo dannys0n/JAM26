@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7318319513134593836}
   - component: {fileID: 5657324999246884947}
   - component: {fileID: 8484764195220517528}
+  - component: {fileID: 772066227276993406}
   m_Layer: 0
   m_Name: Candelabra
   m_TagString: Untagged
@@ -237,3 +238,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -5.078746}
   m_Radius: 1.5062562
+--- !u!114 &772066227276993406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5996486046063677613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 715fded4b71406c48bf0b9a9fc1f7a71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
