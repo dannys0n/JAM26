@@ -2412,6 +2412,10 @@ PrefabInstance:
       value: Singletons
       objectReference: {fileID: 0}
     - target: {fileID: 7343223869456385911, guid: e7148de92143120498d2c9a573b876b9, type: 3}
+      propertyPath: failScreen
+      value: 
+      objectReference: {fileID: 8761567153589579280}
+    - target: {fileID: 7343223869456385911, guid: e7148de92143120498d2c9a573b876b9, type: 3}
       propertyPath: startScreen
       value: 
       objectReference: {fileID: 2030466377}
@@ -2521,6 +2525,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 475d5a361eff38a4aae52f5fb5aab7d1, type: 3}
+--- !u!114 &8761567153589579280 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8729701488414697404, guid: 475d5a361eff38a4aae52f5fb5aab7d1, type: 3}
+  m_PrefabInstance: {fileID: 8761567153589579279}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ef50b218ffe157498f712f32b39dd03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
